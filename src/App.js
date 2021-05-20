@@ -1,14 +1,47 @@
 import React from "react";
-import { ThemeProvider, StyleReset, Div } from "atomize";
+import NavBar from "./components/NavBar";
 import Login from "./Login";
 
 const App = () => {
+  const pages = [
+    {
+      pageLink: "/",
+      view: Home,
+    },
+    {
+      pageLink: "/Services",
+      view: Services,
+    },
+    {
+      pageLink: "/Blog",
+      view: Blog,
+    },
+    {
+      pageLink: "/Help",
+      view: Help,
+    },
+    {
+      pageLink: "/Profile",
+      view: Profile,
+    },
+    {
+      pageLink: "/PostProperty",
+      view: PostProperty,
+    },
+    {
+      pageLink: "/Login",
+      view: Login,
+    },
+  ];
   return (
-    <ThemeProvider /*theme={theme}*/>
-      {/* <StyleReset /> */}
-      <Div>Test</Div>
-      <Login />
-    </ThemeProvider>
+    // <Router>
+    //   <NavBar />
+    //   <Switch>
+    //     <Route />
+    //     <Route />
+    //   </Switch>
+    // </Router>
+    <Login />
   );
 };
 
