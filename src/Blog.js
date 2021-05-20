@@ -1,7 +1,7 @@
 import React from "react";
 
-const SearchBar = () => {
+const Blog = () => {
   return <div></div>;
 };
 
-export default SearchBar;
+export default Blog;

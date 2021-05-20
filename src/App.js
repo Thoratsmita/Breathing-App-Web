@@ -1,6 +1,13 @@
 import React from "react";
+import Blog from "./Blog";
 import NavBar from "./components/NavBar";
+
+import Home from "./Home";
+import Services from "./Services";
+import Help from "./Help";
 import Login from "./Login";
+import PostProperty from "./PostProperty";
+import Profile from "./Profile";
 
 const App = () => {
   const pages = [
