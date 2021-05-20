@@ -1,9 +1,12 @@
 import React from "react";
-import Blog from "./Blog";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 
 import Home from "./Home";
 import Services from "./Services";
+import Blog from "./Blog";
 import Help from "./Help";
 import Login from "./Login";
 import PostProperty from "./PostProperty";
@@ -41,14 +44,17 @@ const App = () => {
     },
   ];
   return (
-    // <Router>
-    //   <NavBar />
-    //   <Switch>
-    //     <Route />
-    //     <Route />
-    //   </Switch>
-    // </Router>
-    <Login />
+    <>
+      <Router>
+        <NavBar />
+        <Switch>
+          {pages.map((page, index) => (
+            <Route path={page.pageLink} exact component={page.view} />
+          ))}
+        </Switch>
+        <Footer />
+      </Router>
+    </>
   );
 };
 
