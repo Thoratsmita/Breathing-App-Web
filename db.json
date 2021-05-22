@@ -1,0 +1,21 @@
+{
+  "usersData": [
+    {
+      "username": "User",
+      "password": "password"
+    },
+    {
+      "username": "Admin",
+      "password": "admin@123"
+    },
+    {
+      "username": "Agent",
+      "password": "agent@123"
+    }
+  ],
+  "servicesData": [{ "name": "test" }],
+  "blogData": [{ "article": "How to buy property" }],
+  "helpData": [],
+  "profileData": [],
+  "propertyData": []
+}

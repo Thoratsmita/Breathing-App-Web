@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "fontsource-roboto";
 
@@ -13,6 +13,7 @@ import Login from "./Login";
 import PostProperty from "./PostProperty";
 import Profile from "./Profile";
 
+import DataService from "./services/Data";
 const App = () => {
   const pages = [
     {
@@ -33,7 +34,7 @@ const App = () => {
     {
       pageLink: "/Help",
       view: Help,
-      name: "Blog",
+      name: "Help",
     },
     {
       pageLink: "/Profile",
@@ -51,6 +52,11 @@ const App = () => {
       name: "Login/SignUp",
     },
   ];
+
+  useEffect(() => {
+    console.log("effect");
+    DataService.getAll().then((response) => console.log(response));
+  }, []);
   return (
     <>
       <Router>
