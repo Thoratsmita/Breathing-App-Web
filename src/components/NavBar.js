@@ -1,18 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import {
-  List,
-  ListItem,
-  ListItemText,
+  // List,
+  // ListItem,
+  // ListItemText,
   AppBar,
   Toolbar,
   Grid,
   Button,
+  Typography,
+  makeStyles,
 } from "@material-ui/core";
-const NavBar = ({ pages }) => {
-  const [open, setOpen] = useState(false);
-  const toggleDrawer = () => setOpen(!open);
 
+const useStyles = makeStyles((theme) => ({
+  navButton: {
+    textTransform: "none",
+  },
+}));
+
+const NavBar = ({ pages }) => {
+  const classes = useStyles();
+  // const [open, setOpen] = useState(false);
+  // const toggleDrawer = () => setOpen(!open);
   // //For mobile compatible drop-down menu
   // const drawer = (
   //   <div>
@@ -25,18 +34,41 @@ const NavBar = ({ pages }) => {
   //     </List>
   //   </div>
   // );
+  const leftNav = pages.slice(0, 4);
+  const rightNav = pages.slice(4, pages.length);
   return (
     <>
       <AppBar>
         <Toolbar>
-          <Grid container justify="space-evenly">
-            {pages.map((page, index) => (
-              <Grid item key={index}>
-                <Button component={Link} to={page.pageLink}>
+          <Grid container justify="space-between" alignItems="center">
+            <Grid item>
+              {leftNav.map((page, index) => (
+                <Button
+                  spacing={2}
+                  className={classes.navButton}
+                  key={index}
+                  component={Link}
+                  to={page.pageLink}
+                >
                   {page.name}
                 </Button>
-              </Grid>
-            ))}
+              ))}
+            </Grid>
+            <Grid item>
+              <Typography variant="body1">Real Estate</Typography>
+            </Grid>
+            <Grid item>
+              {rightNav.map((page, index) => (
+                <Button
+                  className={classes.navButton}
+                  key={index}
+                  component={Link}
+                  to={page.pageLink}
+                >
+                  {page.name}
+                </Button>
+              ))}
+            </Grid>
           </Grid>
         </Toolbar>
       </AppBar>

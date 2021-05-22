@@ -14,6 +14,7 @@ import PostProperty from "./PostProperty";
 import Profile from "./Profile";
 
 import DataService from "./services/Data";
+
 const App = () => {
   const pages = [
     {
@@ -37,6 +38,11 @@ const App = () => {
       name: "Help",
     },
     {
+      pageLink: "/Register",
+      view: Login,
+      name: "Sign Up",
+    },
+    {
       pageLink: "/Profile",
       view: Profile,
       name: "My Profile",
@@ -45,11 +51,6 @@ const App = () => {
       pageLink: "/PostProperty",
       view: PostProperty,
       name: "Post a Property",
-    },
-    {
-      pageLink: "/Login",
-      view: Login,
-      name: "Login/SignUp",
     },
   ];
 
