@@ -44,7 +44,6 @@ const NavBar = ({ pages }) => {
             <Grid item>
               {leftNav.map((page, index) => (
                 <Button
-                  spacing={2}
                   className={classes.navButton}
                   key={index}
                   component={Link}
@@ -55,7 +54,9 @@ const NavBar = ({ pages }) => {
               ))}
             </Grid>
             <Grid item>
-              <Typography variant="body1">Real Estate</Typography>
+              <Typography variant="body1" color="textPrimary">
+                Real Estate
+              </Typography>
             </Grid>
             <Grid item>
               {rightNav.map((page, index) => (

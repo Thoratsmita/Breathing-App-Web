@@ -1,3 +1,4 @@
+import { Typography } from "@material-ui/core";
 import React, { useState } from "react";
 import Form from "./components/Form";
 
@@ -27,7 +28,6 @@ const Login = () => {
   }
   return (
     <>
-      <h1>Login</h1>
       {login ? <div className={"success"}>Logged in</div> : null}
       <Form
         username={user}
