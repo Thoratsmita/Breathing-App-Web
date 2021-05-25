@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   // List,
@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
 const NavBar = ({ pages }) => {
   const classes = useStyles();
+  const [loggedIn, setLoggedIn] = useState(false);
   // const [open, setOpen] = useState(false);
   // const toggleDrawer = () => setOpen(!open);
   // //For mobile compatible drop-down menu
@@ -36,6 +37,8 @@ const NavBar = ({ pages }) => {
   // );
   const leftNav = pages.slice(0, 4);
   const rightNav = pages.slice(4, pages.length);
+  // Login, Profile, Post property
+
   return (
     <>
       <AppBar>

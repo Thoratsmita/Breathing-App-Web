@@ -1,4 +1,4 @@
-import { Typography } from "@material-ui/core";
+// import { Typography } from "@material-ui/core";
 import React, { useState } from "react";
 import Form from "./components/Form";
 
@@ -6,8 +6,10 @@ const Login = () => {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
   const [login, setLogin] = useState(false);
+
   const updateUser = (event) => setUser(event.target.value);
   const updatePass = (event) => setPass(event.target.value);
+
   const onSubmit = (event) => {
     event.preventDefault();
     const data = {
@@ -21,11 +23,13 @@ const Login = () => {
     setUser("");
     setPass("");
   };
+
   if (login !== null) {
     setTimeout(() => {
       setLogin(null);
     }, 5000);
   }
+
   return (
     <>
       {login ? <div className={"success"}>Logged in</div> : null}
