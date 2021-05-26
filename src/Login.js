@@ -1,11 +1,10 @@
-// import { Typography } from "@material-ui/core";
 import React, { useState } from "react";
 import Form from "./components/Form";
 
-const Login = () => {
+const Login = ({ /* loggedIn,*/ toggleLogin }) => {
+  // console.log(logIn);
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
-  const [login, setLogin] = useState(false);
 
   const updateUser = (event) => setUser(event.target.value);
   const updatePass = (event) => setPass(event.target.value);
@@ -19,20 +18,13 @@ const Login = () => {
     console.log(data);
     const sendToServer = JSON.stringify(data);
     console.log(`JSON String sent to server: ${sendToServer}`);
-    setLogin(true);
+    toggleLogin();
     setUser("");
     setPass("");
   };
 
-  if (login !== null) {
-    setTimeout(() => {
-      setLogin(null);
-    }, 5000);
-  }
-
   return (
     <>
-      {login ? <div className={"success"}>Logged in</div> : null}
       <Form
         username={user}
         password={pass}
