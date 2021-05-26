@@ -5,6 +5,7 @@ import {
   Paper,
   makeStyles,
   Typography,
+  Link,
 } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -81,6 +82,9 @@ const Login = ({ /* loggedIn,*/ toggleLogin }) => {
           Login
         </Button>
       </form>
+      <Typography>
+        New Here?<Link href="/Register">Sign Up Now</Link>
+      </Typography>
     </Paper>
   );
 };
