@@ -10,6 +10,7 @@ import Services from "./Services";
 import Blog from "./Blog";
 import Help from "./Help";
 import Login from "./Login";
+import Register from "./Register";
 import PostProperty from "./PostProperty";
 import Profile from "./Profile";
 
@@ -38,9 +39,9 @@ const App = () => {
       name: "Help",
     },
     {
-      pageLink: "/Register",
+      pageLink: "/Login",
       view: Login,
-      name: "Sign Up",
+      name: "Login",
     },
     {
       pageLink: "/Profile",
@@ -75,7 +76,7 @@ const App = () => {
           <Route path="/Blog" exact component={Blog} />
           <Route path="/Help" exact component={Help} />
           <Route
-            path="/Register"
+            path="/Login"
             exact
             render={(props) => (
               <Login
@@ -85,6 +86,7 @@ const App = () => {
               />
             )}
           />
+          <Route path="/Register" exact component={Register} />
           <Route
             path="/Profile"
             exact
