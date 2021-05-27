@@ -13,6 +13,10 @@
       "password": "agent@123"
     }
   ],
+  "cities" : [
+    {"name": "thane"},
+    {"name": "mumbai"}
+  ],
   "servicesData": [{ "name": "test" }],
   "blogData": [{ "article": "How to buy property" }],
   "helpData": [],

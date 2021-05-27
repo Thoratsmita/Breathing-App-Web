@@ -1,7 +1,9 @@
 import Axios from "axios";
 const baseUrl = "http://localhost:3001/usersData";
+const citiUrl = "http://localhost:3001/cities";
 
 const getAll = () => Axios.get(baseUrl).then((response) => response.data);
+const getAll = () => Axios.get(citiUrl).then((response) => response.data);
 
 const create = (newObj) =>
   Axios.post(baseUrl, newObj).then((response) => response.data);
