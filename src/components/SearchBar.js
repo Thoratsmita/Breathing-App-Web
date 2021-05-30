@@ -1,7 +1,7 @@
 import React from "react";
 
 const SearchBar = () => {
-  return <div></div>;
+  return <div>tbd</div>;
 };
 
 export default SearchBar;

@@ -11,7 +11,7 @@ import Blog from "./Blog";
 import Help from "./Help";
 import Login from "./Login";
 import Register from "./Register";
-import PostProperty from "./PostProperty";
+import PostProperty from "./PostPorperty";
 import Profile from "./Profile";
 
 // import DataService from "./services/Data";
@@ -75,6 +75,7 @@ const App = () => {
           <Route path="/Services" exact component={Services} />
           <Route path="/Blog" exact component={Blog} />
           <Route path="/Help" exact component={Help} />
+          <Route path="/PostProperty" exact component={PostProperty} />
           <Route
             path="/Login"
             exact
@@ -98,17 +99,7 @@ const App = () => {
               />
             )}
           />
-          <Route
-            path="/PostProperty"
-            exact
-            render={(props) => (
-              <PostProperty
-                loggedIn={loggedIn}
-                toggleLogin={toggleLoginStatus}
-                {...props}
-              />
-            )}
-          />
+      
         </Switch>
         <Footer />
       </Router>
