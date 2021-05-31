@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "fontsource-roboto";
 
 import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
 
 import Home from "./Home";
 import Services from "./Services";
@@ -99,9 +98,7 @@ const App = () => {
               />
             )}
           />
-      
         </Switch>
-        <Footer />
       </Router>
     </>
   );
