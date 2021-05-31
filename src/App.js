@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "fontsource-roboto";
 
@@ -13,7 +13,7 @@ import Register from "./Register";
 import PostProperty from "./PostPorperty";
 import Profile from "./Profile";
 
-import DataService from "./services/Data";
+// import DataService from "./services/Data";
 
 const App = () => {
   const pages = [
@@ -56,10 +56,10 @@ const App = () => {
   const [loggedIn, setloggedIn] = useState(false);
   const toggleLoginStatus = () => setloggedIn(!loggedIn);
 
-  useEffect(() => {
-    console.log("effect");
-    DataService.getAll("usersData").then((response) => console.log(response));
-  }, []);
+  // useEffect(() => {
+  //   console.log("effect");
+  //   DataService.getAll("usersData").then((response) => console.log(response));
+  // }, []);
 
   return (
     <>

@@ -10,6 +10,7 @@ import {
   FormControlLabel,
   Link,
 } from "@material-ui/core";
+import { Link as LinkRouter } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -135,7 +136,10 @@ const Register = ({ /* loggedIn,*/ toggleLogin }) => {
         </Button>
       </form>
       <Typography>
-        Already Registered?<Link href="/Login">Login Now</Link>
+        Already Registered?
+        <Link component={LinkRouter} to="/login">
+          &nbsp;Login Now
+        </Link>
       </Typography>
     </Paper>
   );

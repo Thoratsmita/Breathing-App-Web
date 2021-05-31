@@ -36,8 +36,14 @@ const NavBar = ({ pages, loggedIn }) => {
   //   </div>
   // );
   const leftNav = pages.slice(0, 4);
-  const rightNav = loggedIn ? pages.slice(5, pages.length) : pages.slice(4, 5);
+  // console.log(pages);
 
+  let rightNav = loggedIn ? pages.slice(5, 6) : pages.slice(4, 5);
+  // const rightNav = loggedIn ? pages.slice(4, 5) : pages.slice(5, pages.length);
+  // rightNav = { ...pages.slice(6, 7) };
+  rightNav.push(pages.slice(6, pages.length)[0]);
+  // console.log(pages.slice(6, pages.length));
+  console.log(rightNav);
   // Login, Profile, Post property
 
   return (

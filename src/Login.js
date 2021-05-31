@@ -7,6 +7,7 @@ import {
   Typography,
   Link,
 } from "@material-ui/core";
+import { Link as LinkRouter } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -83,7 +84,10 @@ const Login = ({ /* loggedIn,*/ toggleLogin }) => {
         </Button>
       </form>
       <Typography>
-        New Here?<Link href="/Register">Sign Up Now</Link>
+        New Here?
+        <Link component={LinkRouter} to="/Register">
+          &nbsp;Sign Up Now
+        </Link>
       </Typography>
     </Paper>
   );
