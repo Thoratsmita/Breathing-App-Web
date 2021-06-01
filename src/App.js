@@ -3,13 +3,13 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "fontsource-roboto";
 
 import NavBar from "./components/NavBar";
+import SignUp from "./components/SignUp";
 
 import Home from "./Home";
 import Services from "./Services";
 import Blog from "./Blog";
 import Help from "./Help";
 import Login from "./Login";
-import Register from "./Register";
 import PostProperty from "./PostPorperty";
 import Profile from "./Profile";
 
@@ -86,7 +86,13 @@ const App = () => {
               />
             )}
           />
-          <Route path="/Register" exact component={Register} />
+          <Route
+            path="/Register"
+            exact
+            render={(props) => (
+              <SignUp toggleLogin={toggleLoginStatus} {...props} />
+            )}
+          />
           <Route
             path="/Profile"
             exact

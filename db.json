@@ -1,19 +1,46 @@
 {
   "usersData": [
     {
-      "username": "User",
-      "password": "password"
+      "userType": "Buyer/Owner",
+      "name": "Owner",
+      "email": "owner@gmail.com",
+      "password": "owner@123",
+      "phoneNo": "123456789",
+      "id": 1
     },
     {
-      "username": "Admin",
-      "password": "admin@123"
+      "userType": "Agent",
+      "name": "Agent",
+      "email": "agent@gmail.com",
+      "password": "agent@123",
+      "phoneNo": "9571234575",
+      "id": 2
     },
     {
-      "username": "Agent",
-      "password": "agent@123"
+      "userType": "Builder",
+      "name": "Builder",
+      "email": "builder@gmail.com",
+      "password": "builder@123",
+      "phoneNo": "8172794174",
+      "id": 3
+    },
+    {
+      "userType": "",
+      "name": "Admin",
+      "email": "admin@gmail.com",
+      "password": "admin@123",
+      "phoneNo": "",
+      "id": 4
     }
   ],
-  "citiesData": [{ "name": "thane" }, { "name": "mumbai" }],
+  "citiesData": [
+    {
+      "name": "thane"
+    },
+    {
+      "name": "mumbai"
+    }
+  ],
   "servicesData": [
     {
       "title": "Home Loans",
@@ -110,9 +137,20 @@
       "bhk": "3 BHK",
       "price": "2.1 Cr",
       "address": "Plot 501, Santosh Road, Chembur, Mumbai",
-      "area": [{ "carpet": "1054", "super": "1000" }],
+      "area": [
+        {
+          "carpet": "1054",
+          "super": "1000"
+        }
+      ],
       "age": "5 years",
-      "rooms": [{ "bedroom": 2, "bathroom": 2, "balcony": 2 }],
+      "rooms": [
+        {
+          "bedroom": 2,
+          "bathroom": 2,
+          "balcony": 2
+        }
+      ],
       "floor": 9,
       "description": "Lorem ipsum....",
       "amnetites": ["wifi", "security", "powerBackup", "247water"],

@@ -11,6 +11,7 @@ import {
   Link,
 } from "@material-ui/core";
 import { Link as LinkRouter } from "react-router-dom";
+import DataService from "../services/Data";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,20 +21,19 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-const Register = ({ /* loggedIn,*/ toggleLogin }) => {
-  // console.log(logIn);
+const SignUp = ({ toggleLogin }) => {
   const classes = useStyles();
   const [userType, setUserType] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [mobNo, setMobNo] = useState("");
+  const [phoneNo, setPhoneNo] = useState("");
 
   const updateUserType = (event) => setUserType(event.target.value);
   const updateName = (event) => setName(event.target.value);
   const updateEmail = (event) => setEmail(event.target.value);
   const updatePass = (event) => setPassword(event.target.value);
-  const updateMobNo = (event) => setMobNo(event.target.value);
+  const updatePhoneNo = (event) => setPhoneNo(event.target.value);
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -42,17 +42,17 @@ const Register = ({ /* loggedIn,*/ toggleLogin }) => {
       name,
       email,
       password,
-      mobNo,
+      phoneNo,
     };
     console.log(data);
-    const sendToServer = JSON.stringify(data);
-    console.log(`JSON String sent to server: ${sendToServer}`);
-    // toggleLogin();
+    DataService.create("usersData", data);
+    console.log(`Data sent to server: ${JSON.stringify(data)}`);
+    toggleLogin();
     setUserType("");
     setName("");
     setEmail("");
     setPassword("");
-    setMobNo("");
+    setPhoneNo("");
   };
 
   return (
@@ -118,11 +118,10 @@ const Register = ({ /* loggedIn,*/ toggleLogin }) => {
         </div>
         <div>
           <TextField
-            label="MobNo"
-            type="number"
+            label="Phone Number"
             variant="outlined"
-            value={mobNo}
-            onChange={updateMobNo}
+            value={phoneNo}
+            onChange={updatePhoneNo}
           />
         </div>
         <Button
@@ -145,4 +144,4 @@ const Register = ({ /* loggedIn,*/ toggleLogin }) => {
   );
 };
 
-export default Register;
+export default SignUp;
