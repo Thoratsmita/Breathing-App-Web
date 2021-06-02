@@ -80,53 +80,66 @@
   "articleData": [
     {
       "title": "Infrastructure projects pickup pace in maharashtra",
-      "description": "Lorem ipsum...."
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. ipsum...."
     }
   ],
-  "helpData": [
-    {
-      "topics": [
-        {
-          "title": "User Profile",
-          "contents": [
-            "New Account",
-            "Account Subscription",
-            "Account Deactivation",
-            "Changing account type"
-          ]
-        },
-        {
-          "title": "Property Management",
-          "contents": [
-            "Free Property Listing",
-            "Posting Property",
-            "Update Property Details",
-            "Locality Update",
-            "Upload/Edit Photos"
-          ]
-        }
-      ],
-      "faqData": []
-    }
-  ],
-  "profileData": [
-    {
-      "profileDetails": [
-        {
-          "name": "User",
-          "type": "Owner",
-          "email": "user@gmail.com",
-          "phone": "1234567890"
-        }
-      ],
-      "chat": [],
-      "shorlistedProperties": [],
-      "ownersContacted": [],
-      "manageProperties": [],
-      "manageSubscriptions": [],
-      "payments": []
-    }
-  ],
+  "helpData": {
+    "topics": [
+      {
+        "title": "User Profile",
+        "contents": [
+          "New Account",
+          "Account Subscription",
+          "Account Deactivation",
+          "Changing account type"
+        ]
+      },
+      {
+        "title": "Property Management",
+        "contents": [
+          "Free Property Listing",
+          "Posting Property",
+          "Update Property Details",
+          "Locality Update",
+          "Upload/Edit Photos"
+        ]
+      }
+    ],
+    "faqData": [
+      {
+        "que": "How do I deactivate my account?",
+        "ans": "To de-activate your account, follow these steps..."
+      },
+      {
+        "que": "When will my property become visible on the site?",
+        "ans": "It takes maximum 24 hours for a property to get screened and become visible on search"
+      },
+      {
+        "que": "What all can I do with the package I have purchased?",
+        "ans": "Once free listing is consumed, an Owner will be able to post property for Sale/Rent, Residential/Commercial after buying a paid package."
+      },
+      {
+        "que": "Why my package is not activated?",
+        "ans": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
+      }
+    ]
+  },
+  "profileData": {
+    "profileDetails": [
+      {
+        "name": "User",
+        "type": "Owner",
+        "email": "user@gmail.com",
+        "phone": "1234567890"
+      }
+    ],
+    "chat": [],
+    "shorlistedProperties": [],
+    "ownersContacted": [],
+    "manageProperties": [],
+    "manageSubscriptions": [],
+    "payments": []
+  },
   "propertyData": [
     {
       "id": 1,
@@ -152,7 +165,7 @@
         }
       ],
       "floor": 9,
-      "description": "Lorem ipsum....",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. ipsum....",
       "amnetites": ["wifi", "security", "powerBackup", "247water"],
       "similarProperties": [
         {
