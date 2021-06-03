@@ -1,95 +1,102 @@
-import React, { useState } from "react";
-import {
-  TextField,
-  Button,
-  Paper,
-  makeStyles,
-  Typography,
-  Link,
-} from "@material-ui/core";
-import { Link as LinkRouter } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    "& .MuiTextField-root": {
-      margin: theme.spacing(1),
-      width: "25ch",
-    },
-  },
-}));
-const Login = ({ /* loggedIn,*/ toggleLogin }) => {
-  // console.log(logIn);
-  const classes = useStyles();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+const Login = () => {
+  const [name, setName] = useState([]);
+  const [email, setEmail] = useState([]);
+  const [password, setpassword] = useState([]);
+  const [confirmpassword, setconfirmpassword] = useState([]);
 
-  const updateUser = (event) => setUsername(event.target.value);
-  const updatePass = (event) => setPassword(event.target.value);
-
-  const onSubmit = (event) => {
-    event.preventDefault();
-    const data = {
-      username,
-      password,
-    };
-    console.log(data);
-    const sendToServer = JSON.stringify(data);
-    console.log(`JSON String sent to server: ${sendToServer}`);
-    toggleLogin();
-    setUsername("");
-    setPassword("");
+  const ChangeName = (event) => {
+    setName({ name: event.target.value });
   };
+  const ChangeEmail = (event) => {
+    setEmail({ email: event.target.value });
+  };
+  const ChangePassword = (event) => {
+    setpassword({ password: event.target.value });
+  };
+  const ChangeConfirmPassword = (event) => {
+    setconfirmpassword({ confirmpassword: event.target.value });
+  };
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      "& > *": {
+        margin: theme.spacing(1),
+        width: "25ch",
+      },
+    },
+    signup: {
+      margin: " 20px 0",
+      color: "white",
+      background: "#4de3d9",
+      width: "288px",
+      height: "69px",
+      borderRadius: "34.5px",
+    },
+    signin: {
+      margin: " 20px 0",
+      color: "#ff6864",
+      border: "2px solid #ff6864 ",
 
+      width: "288px",
+      height: "69px",
+      borderRadius: "34.5px",
+    },
+  }));
+  const classes = useStyles();
   return (
-    <Paper
-      style={{
-        padding: "1rem",
-      }}
-    >
-      <Typography align="center" variant="h5">
-        Login
-      </Typography>
-
-      <form
-        className={classes.root}
-        noValidate
-        autoComplete="off"
-        onSubmit={onSubmit}
-      >
-        <div>
+    <div>
+      <br></br>
+      <br></br>
+      <div>
+        <form noValidate autoComplete="off" className={classes.root}>
           <TextField
-            label="Email or Username"
-            variant="outlined"
-            value={username}
-            onChange={updateUser}
+            required
+            id="standard-basic"
+            label="Name"
+            defaultValue=" "
+            onChange={ChangeName}
           />
-        </div>
-        <div>
+          <br></br>
+          <br></br>
           <TextField
-            type="password"
+            required
+            id="standard-basic"
+            label="Email"
+            defaultValue=" "
+            onChange={ChangeEmail}
+          />
+          <br></br>
+          <br></br>
+          <TextField
+            required
+            id="standard-basic"
             label="Password"
-            variant="outlined"
-            value={password}
-            onChange={updatePass}
+            defaultValue=" "
+            onChange={ChangePassword}
           />
-        </div>
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          fullWidth
-          style={{ marginTop: "1rem" }}
-        >
-          Login
+          <br></br>
+          <br></br>
+          <TextField
+            required
+            id="standard-basic"
+            label="Confirm Password"
+            defaultValue=" "
+            onChange={ChangeConfirmPassword}
+          />
+        </form>
+        <Button variant="outlined" className={classes.signup}>
+          SignUp
         </Button>
-      </form>
-      <Typography>
-        New Here?
-        <Link component={LinkRouter} to="/Register">
-          &nbsp;Sign Up Now
-        </Link>
-      </Typography>
-    </Paper>
+        <br></br>
+        <Button variant="outlined" className={classes.signin}>
+          SignIn
+        </Button>
+      </div>
+    </div>
   );
 };
 
