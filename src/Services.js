@@ -13,10 +13,21 @@ import DataService from "./services/Data";
 import realEstate from "./assets/real-estate.jpg";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
+  centerText: {
+    display: "flex",
+    justifyContent: "center",
   },
-  card: { maxWidth: 350, padding: theme.spacing(2) },
+  card: {
+    flexGrow: 1,
+    display: "flex",
+    flexDirection: "column",
+    padding: theme.spacing(1),
+  },
+  gridContainer: {
+    marginTop: theme.spacing(1),
+    paddingLeft: theme.spacing(28),
+    paddingRight: theme.spacing(28),
+  },
 }));
 
 const Services = () => {
@@ -31,11 +42,13 @@ const Services = () => {
 
   console.log(services);
   return (
-    <div style={{ paddingLeft: 200, paddingRight: 200 }}>
-      <div>Services</div>
-      <Grid container className={classes.root} spacing={4}>
+    <>
+      <Typography color="primary" variant="h6" className={classes.centerText}>
+        SERVICES
+      </Typography>
+      <Grid container spacing={4} className={classes.gridContainer}>
         {services.map((service, index) => (
-          <Grid key={index} item xs={6}>
+          <Grid key={index} item xs={12} sm={6} className={classes.card}>
             <Card className={classes.card}>
               <CardMedia image={realEstate} />
               <CardContent>
@@ -53,7 +66,7 @@ const Services = () => {
           </Grid>
         ))}
       </Grid>
-    </div>
+    </>
   );
 };
 

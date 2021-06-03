@@ -8,7 +8,6 @@ import {
   CardMedia,
   Link,
   Accordion,
-  AccordionActions,
   AccordionSummary,
   AccordionDetails,
 } from "@material-ui/core";
@@ -18,24 +17,23 @@ import DataService from "./services/Data";
 import realEstate from "./assets/real-estate.jpg";
 
 const useStyles = makeStyles((theme) => ({
+  flexWrapper: {
+    display: "flex",
+  },
   card: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
-  flexWrapper: {
-    display: "flex",
-    justifyContent: "center",
-  },
   flexCol: {
     display: "flex",
     flexDirection: "column",
   },
-  gridWrapper: {
-    margin: theme.spacing(1),
+  gridContainer: {
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
   },
-  root: {
-    // paddingLeft: theme.spacing(2),
+  centerText: {
     display: "flex",
     justifyContent: "center",
   },
@@ -62,18 +60,18 @@ const Help = () => {
 
   return (
     <>
-      <Typography color="primary" variant="h6" className={classes.root}>
+      <Typography color="primary" variant="h6" className={classes.centerText}>
         HELP
       </Typography>
       <div className={classes.flexWrapper}>
         <Grid
-          className={classes.gridWrapper}
+          className={classes.gridContainer}
           container
           spacing={2}
           direction="column"
         >
           <Grid item>
-            <Typography className={classes.root}>Help Topics</Typography>
+            <Typography className={classes.centerText}>Help Topics</Typography>
           </Grid>
           {helpTopic.map((topic, index) => (
             <Grid item key={index}>
@@ -101,10 +99,10 @@ const Help = () => {
           container
           spacing={2}
           direction="column"
-          className={classes.gridWrapper}
+          className={classes.gridContainer}
         >
           <Grid item>
-            <Typography className={classes.root}>FAQs</Typography>
+            <Typography className={classes.centerText}>FAQs</Typography>
           </Grid>
           <Grid item>
             {faqData.map((faq, index) => (
