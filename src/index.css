@@ -1,10 +1,3 @@
-html,
-body {
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-}
-
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -15,6 +8,17 @@ body {
   flex-direction: row;
   justify-content: center;
   overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  min-height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 code {
@@ -22,15 +26,3 @@ code {
     monospace;
 }
 
-.success {
-  border-radius: 5px;
-  display: flex;
-  font-size: 16px;
-  border-style: solid;
-  padding: 10px;
-  font: bold;
-  margin: 10px;
-  border-color: green;
-  color: green;
-  background: lightgreen;
-}

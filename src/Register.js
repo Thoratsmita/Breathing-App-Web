@@ -13,18 +13,26 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import logo from "./assets/logo.png";
+import { Link as LinkRouter } from "react-router-dom";
 import "./login.css";
 
-const Login = () => {
-  const [username, setuserName] = useState([]);
-
+const Register = () => {
+  const [name, setName] = useState([]);
+  const [email, setEmail] = useState([]);
   const [password, setpassword] = useState([]);
+  const [confirmpassword, setconfirmpassword] = useState([]);
 
   const ChangeName = (event) => {
-    setuserName({ username: event.target.value });
+    setName({ name: event.target.value });
+  };
+  const ChangeEmail = (event) => {
+    setEmail({ email: event.target.value });
   };
   const ChangePassword = (event) => {
     setpassword({ password: event.target.value });
+  };
+  const ChangeConfirmPassword = (event) => {
+    setconfirmpassword({ confirmpassword: event.target.value });
   };
 
   const useStyles = makeStyles((theme) => ({
@@ -77,13 +85,26 @@ const Login = () => {
               required
               fullWidth
               id="standard-basic"
-              label="Username"
-              name="Username"
+              label="Name"
+              name="Name"
               className="Username"
               autoFocus
               onChange={ChangeName}
             />
             <br></br>
+            <br></br>
+            <br></br>
+
+            <TextField
+              required
+              fullWidth
+              id="standard-basic"
+              label="Email"
+              name="Email"
+              className="Username"
+              autoFocus
+              onChange={ChangeEmail}
+            />
             <br></br>
             <br></br>
             <br></br>
@@ -101,6 +122,20 @@ const Login = () => {
             <br></br>
             <br></br>
             <br></br>
+            <TextField
+              required
+              fullWidth
+              id="standard-basic"
+              name="password"
+              label="Password"
+              type="password"
+              className="Username"
+              autoComplete="current-password"
+              onChange={ChangeConfirmPassword}
+            />
+            <br></br>
+            <br></br>
+            <br></br>
 
             <center>
               <Button variant="outlined" className={classes.signup}>
@@ -108,7 +143,9 @@ const Login = () => {
               </Button>
               <br></br>
               <Button variant="outlined" className={classes.signin}>
-                SignIn
+                <Link component={LinkRouter} to="/Login">
+                  SignIn
+                </Link>
               </Button>
               <br></br>
             </center>
@@ -118,4 +155,4 @@ const Login = () => {
     </center>
   );
 };
-export default Login;
+export default Register;
