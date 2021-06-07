@@ -47,8 +47,9 @@ const Login = () => {
     },
     signup: {
       margin: " 20px 0",
-      color: "white",
-      background: "#4de3d9",
+      color: "#21dbcf",
+
+      border: "solid 1px #21dbcf",
       width: "288px",
       height: "69px",
       borderRadius: "34.5px",
@@ -56,8 +57,9 @@ const Login = () => {
     },
     signin: {
       margin: " 20px 0",
-      color: "#ff6864",
+      color: "#ffffff",
       border: "2px solid #ff6864 ",
+      background: "#ff6864",
       fontSize: "20px",
       width: "288px",
       height: "69px",
@@ -103,13 +105,14 @@ const Login = () => {
             <br></br>
 
             <center>
+              <Button variant="outlined" className={classes.signin}>
+                SignIn
+              </Button>
               <Button variant="outlined" className={classes.signup}>
                 SignUp
               </Button>
               <br></br>
-              <Button variant="outlined" className={classes.signin}>
-                SignIn
-              </Button>
+
               <br></br>
             </center>
           </form>

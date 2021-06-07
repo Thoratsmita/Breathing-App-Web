@@ -39,7 +39,7 @@ const Home = () => {
           <img src={dog} className={classes.image} />
         </div>
         <div>
-          <Register />
+          <Login />
         </div>
       </div>
     </div>

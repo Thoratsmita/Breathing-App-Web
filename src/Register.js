@@ -64,7 +64,7 @@ const Register = () => {
     },
     signin: {
       margin: " 20px 0",
-      color: "#ff6864",
+      color: "white",
       border: "2px solid #ff6864 ",
       fontSize: "20px",
       width: "288px",
