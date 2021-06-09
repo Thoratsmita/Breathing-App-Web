@@ -8,33 +8,20 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import dog from "./assets/dog.png";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+
 import Typography from "@material-ui/core/Typography";
+import { Link as LinkRouter } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import logo from "./assets/logo.png";
-import { Link as LinkRouter } from "react-router-dom";
+
 import "./login.css";
 
-const Register = () => {
-  const [name, setName] = useState([]);
-  const [email, setEmail] = useState([]);
-  const [password, setpassword] = useState([]);
-  const [confirmpassword, setconfirmpassword] = useState([]);
-
-  const ChangeName = (event) => {
-    setName({ name: event.target.value });
+const Loginform = ({ Login, error }) => {
+  const [details, setDetails] = useState({ name: "", password: "" });
+  const submitHandler = (e) => {
+    e.preventDefault();
+    Login(details);
   };
-  const ChangeEmail = (event) => {
-    setEmail({ email: event.target.value });
-  };
-  const ChangePassword = (event) => {
-    setpassword({ password: event.target.value });
-  };
-  const ChangeConfirmPassword = (event) => {
-    setconfirmpassword({ confirmpassword: event.target.value });
-  };
-
   const useStyles = makeStyles((theme) => ({
     paper: {
       marginTop: theme.spacing(8),
@@ -55,8 +42,9 @@ const Register = () => {
     },
     signup: {
       margin: " 20px 0",
-      color: "white",
-      background: "#4de3d9",
+      color: "#21dbcf",
+
+      border: "solid 1px #21dbcf",
       width: "288px",
       height: "69px",
       borderRadius: "34.5px",
@@ -64,8 +52,9 @@ const Register = () => {
     },
     signin: {
       margin: " 20px 0",
-      color: "white",
+      color: "#ffffff",
       border: "2px solid #ff6864 ",
+      background: "#ff6864",
       fontSize: "20px",
       width: "288px",
       height: "69px",
@@ -79,32 +68,19 @@ const Register = () => {
     <center>
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
-          <img src={logo} />
-          <form className={classes.form} noValidate>
+          <form className={classes.form} onSubmit={submitHandler} noValidate>
             <TextField
               required
               fullWidth
               id="standard-basic"
-              label="Name"
-              name="Name"
+              label="Username"
+              name="name"
               className="Username"
               autoFocus
-              onChange={ChangeName}
+              onChange={(e) => setDetails({ ...details, name: e.target.value })}
+              value={details.name}
             />
             <br></br>
-            <br></br>
-            <br></br>
-
-            <TextField
-              required
-              fullWidth
-              id="standard-basic"
-              label="Email"
-              name="Email"
-              className="Username"
-              autoFocus
-              onChange={ChangeEmail}
-            />
             <br></br>
             <br></br>
             <br></br>
@@ -117,36 +93,32 @@ const Register = () => {
               type="password"
               className="Username"
               autoComplete="current-password"
-              onChange={ChangePassword}
-            />
-            <br></br>
-            <br></br>
-            <br></br>
-            <TextField
-              required
-              fullWidth
-              id="standard-basic"
-              name="password"
-              label="Password"
-              type="password"
-              className="Username"
-              autoComplete="current-password"
-              onChange={ChangeConfirmPassword}
+              onChange={(e) =>
+                setDetails({ ...details, password: e.target.value })
+              }
+              value={details.password}
             />
             <br></br>
             <br></br>
             <br></br>
 
             <center>
-              <Button variant="outlined" className={classes.signup}>
-                SignUp
+              <Button
+                variant="outlined"
+                className={classes.signin}
+                value="Submit"
+                type="submit"
+                value="Submit"
+              >
+                SignIn
               </Button>
-              <br></br>
-              <Button variant="outlined" className={classes.signin}>
-                <Link component={LinkRouter} to="/Login">
-                  SignIn
+              <Button variant="outlined" className={classes.signup}>
+                <Link component={LinkRouter} to="/">
+                  SignUp
                 </Link>
               </Button>
+              <br></br>
+
               <br></br>
             </center>
           </form>
@@ -155,4 +127,4 @@ const Register = () => {
     </center>
   );
 };
-export default Register;
+export default Loginform;

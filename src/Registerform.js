@@ -13,18 +13,39 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import logo from "./assets/logo.png";
+import { Link as LinkRouter } from "react-router-dom";
 import "./login.css";
+import DataService from "./service/Data";
 
-const Login = () => {
-  const [username, setuserName] = useState([]);
-
-  const [password, setpassword] = useState([]);
+const Registerform = () => {
+  const [name, setName] = useState();
+  const [email, setEmail] = useState();
+  const [password, setpassword] = useState();
+  const [confirmpassword, setconfirmpassword] = useState();
 
   const ChangeName = (event) => {
-    setuserName({ username: event.target.value });
+    setName({ name: event.target.value });
+  };
+  const ChangeEmail = (event) => {
+    setEmail({ email: event.target.value });
   };
   const ChangePassword = (event) => {
     setpassword({ password: event.target.value });
+  };
+  const ChangeConfirmPassword = (event) => {
+    setconfirmpassword({ confirmpassword: event.target.value });
+  };
+  const onSubmit = (event) => {
+    event.preventDefault();
+    const data = {
+      name,
+      email,
+      password,
+      confirmpassword,
+    };
+    console.log(data);
+    DataService.create("usersData", data);
+    console.log(`Data sent to server: ${JSON.stringify(data)}`);
   };
 
   const useStyles = makeStyles((theme) => ({
@@ -47,9 +68,8 @@ const Login = () => {
     },
     signup: {
       margin: " 20px 0",
-      color: "#21dbcf",
-
-      border: "solid 1px #21dbcf",
+      color: "white",
+      background: "#4de3d9",
       width: "288px",
       height: "69px",
       borderRadius: "34.5px",
@@ -57,9 +77,8 @@ const Login = () => {
     },
     signin: {
       margin: " 20px 0",
-      color: "#ffffff",
+      color: "white",
       border: "2px solid #ff6864 ",
-      background: "#ff6864",
       fontSize: "20px",
       width: "288px",
       height: "69px",
@@ -79,13 +98,26 @@ const Login = () => {
               required
               fullWidth
               id="standard-basic"
-              label="Username"
-              name="Username"
+              label="Name"
+              name="Name"
               className="Username"
               autoFocus
               onChange={ChangeName}
             />
             <br></br>
+            <br></br>
+            <br></br>
+
+            <TextField
+              required
+              fullWidth
+              id="standard-basic"
+              label="Email"
+              name="Email"
+              className="Username"
+              autoFocus
+              onChange={ChangeEmail}
+            />
             <br></br>
             <br></br>
             <br></br>
@@ -97,22 +129,44 @@ const Login = () => {
               label="Password"
               type="password"
               className="Username"
-              autoComplete="current-password"
               onChange={ChangePassword}
+            />
+            <br></br>
+            <br></br>
+            <br></br>
+            <TextField
+              required
+              fullWidth
+              id="standard-basic"
+              name="Confirmpassword"
+              label="ConfirmPassword"
+              type="password"
+              className="Username"
+              onChange={ChangeConfirmPassword}
+              value={confirmpassword}
             />
             <br></br>
             <br></br>
             <br></br>
 
             <center>
-              <Button variant="outlined" className={classes.signin}>
-                SignIn
-              </Button>
-              <Button variant="outlined" className={classes.signup}>
-                SignUp
+              <Button
+                variant="outlined"
+                className={classes.signup}
+                type="submit"
+                value="Submit"
+                onClick={onSubmit}
+              >
+                <Link component={LinkRouter} to="/SucessfulRegistration">
+                  SignUp
+                </Link>
               </Button>
               <br></br>
-
+              <Button variant="outlined" className={classes.signin}>
+                <Link component={LinkRouter} to="/Login">
+                  SignIn
+                </Link>
+              </Button>
               <br></br>
             </center>
           </form>
@@ -121,4 +175,4 @@ const Login = () => {
     </center>
   );
 };
-export default Login;
+export default Registerform;

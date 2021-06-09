@@ -64,3 +64,28 @@
   letter-spacing: normal;
   color: #444444;
 }
+CSS .Successfully-registe {
+  width: 167px;
+  height: 62px;
+  margin: 125px 13px 65px 14px;
+  background-color: #444444;
+  font-family: Helvetica;
+  font-size: 26px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #444444;
+}
+
+.save {
+  margin: 20px 0;
+  color: #ffffff;
+  background-color: #4de382;
+  font-size: 20px;
+  width: 288px;
+  height: 69px;
+  border-radius: 34.5px;
+}

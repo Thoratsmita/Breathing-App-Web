@@ -26,3 +26,13 @@ code {
     monospace;
 }
 
+.Rectangle {
+  width: 1061px;
+  height: 63px;
+  padding: 6px 15px 0 9px;
+  background-image: linear-gradient(
+    to bottom,
+    var(--pastel-orange),
+    var(--salmon)
+  );
+}

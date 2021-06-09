@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import Register from "./Register";
+import Registermain from "./Registermain";
 import logo from "./assets/logo.png";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
-import Login from "./Login";
+import Loginmain from "./Loginmain";
 import "./login.css";
 import dog from "./assets/dog.png";
 import { LocalGasStationRounded } from "@material-ui/icons";
@@ -39,7 +39,7 @@ const Home = () => {
           <img src={dog} className={classes.image} />
         </div>
         <div>
-          <Login />
+          <Registermain />
         </div>
       </div>
     </div>
