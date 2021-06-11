@@ -83,13 +83,22 @@ const Profile = () => {
     submit: {
       margin: theme.spacing(3, 0, 2),
     },
+    save: {
+      width: "179px",
+      height: "49px",
+      margin: "3px 15px 11px 118px",
+      padding: "14px 65px 13px 66px",
+      borderRadius: "34.5px",
+      backgroundColor: "#4de382",
+      justifyContent: "right",
+      color: "#ffffff",
+    },
   }));
 
   const classes = useStyles();
 
   return (
     <div>
-      <Horizontalnav />
       <center>
         <Container component="main" maxWidth="xs">
           <div className={classes.paper}>
@@ -194,10 +203,15 @@ const Profile = () => {
               <br></br>
               <br></br>
               <br></br>
-
+              <br></br>
               <center>
-                <Button variant="outlined" className="save" type="submit">
-                  Save
+                <Button
+                  variant="outlined"
+                  className="save"
+                  type="submit"
+                  className={classes.save}
+                >
+                  <b>Save</b>
                 </Button>
                 <br></br>
 

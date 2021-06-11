@@ -4,7 +4,10 @@ import "fontsource-roboto";
 import Registerx from "./Registerx";
 import Home from "./Home";
 import Loginmain from "./Loginmain";
-import VerticalNav from "./components/VerticalNav";
+import Profile from "./Profile";
+import SoundAlarm from "./SoundAlarm";
+import Geofence from "./Geofence";
+import Navbar from "./Navbar";
 // import DataService from "./services/Data";
 
 const App = () => {
@@ -15,12 +18,12 @@ const App = () => {
 
   return (
     <Router>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/Login" exact component={Loginmain} />
-        <Route path="/SucessfulRegistration" exact component={Registerx} />
-        <Route path="/Uppernav" exact component={VerticalNav} />
-      </Switch>
+      <Route path="/" exact component={Home} />
+      <Route path="/Login" exact component={Loginmain} />
+      <Route path="/Profile" exact component={Profile} />
+      <Route path="/SoundAlarm" exact component={SoundAlarm} />
+      <Route path="/Geofence" exact component={Geofence} />
+      <Route path="/Navbar" exact component={Navbar} />
     </Router>
   );
 };

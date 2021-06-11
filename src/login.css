@@ -89,3 +89,15 @@ CSS .Successfully-registe {
   height: 69px;
   border-radius: 34.5px;
 }
+
+.backgroundimg {
+  margin-top: 80px;
+  margin-left: 50px;
+  margin-right: 50px;
+  background-image: url("./assets/SoundAlarmbg.png");
+}
+
+.time {
+  font-size: 23px;
+  color: #666666;
+}
