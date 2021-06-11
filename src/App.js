@@ -8,6 +8,7 @@ import Profile from "./Profile";
 import SoundAlarm from "./SoundAlarm";
 import Geofence from "./Geofence";
 import Navbar from "./Navbar";
+import Mapx from "./Mapx";
 // import DataService from "./services/Data";
 
 const App = () => {
@@ -24,6 +25,8 @@ const App = () => {
       <Route path="/SoundAlarm" exact component={SoundAlarm} />
       <Route path="/Geofence" exact component={Geofence} />
       <Route path="/Navbar" exact component={Navbar} />
+      <Route path="/SucessfulRegistration" exact component={Registerx} />
+      <Route path="/Mapx" exact component={Mapx} />
     </Router>
   );
 };
