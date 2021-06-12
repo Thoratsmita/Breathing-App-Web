@@ -1,11 +1,11 @@
 .topnav {
   background-image: linear-gradient(to bottom, #ff9755, #ff7c63);
+  height: 75px;
 }
-.Background
-{
-    width: 180px;
-    height: 604px;
-    margin: 63px 14px 0 0;
-    padding: 4px 4px 9px 3px;
-    background-color: #f4f4f2;
+.Background {
+  width: 180px;
+  height: 604px;
+  margin: 63px 14px 0 0;
+  padding: 4px 4px 9px 3px;
+  background-color: #f4f4f2;
 }

@@ -15,13 +15,16 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    marginTop: "10px",
+    marginLeft: "-20px",
   },
   title: {
     flexGrow: 1,
   },
   image: {
     backgroundColor: "white",
-    height: "63px",
+    padding: "0px",
+    height: "60px",
     margin: "0px",
   },
 }));
