@@ -161,7 +161,7 @@ const Registerform = () => {
                   SignUp
                 </Link>
               </Button>
-              <br></br>
+         
               <Button variant="outlined" className={classes.signin}>
                 <Link component={LinkRouter} to="/Login">
                   SignIn

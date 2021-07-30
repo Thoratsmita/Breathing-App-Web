@@ -4,6 +4,7 @@ import Loginform from "./Loginform";
 import logo from "./assets/logo.png";
 import dog from "./assets/dog.png";
 import { makeStyles } from "@material-ui/core/styles";
+import Navbar from ".//Navbar";
 const Loginmain = () => {
   const AdminUser = {
     name: "madhura",
@@ -20,7 +21,7 @@ const Loginmain = () => {
       display: "flex",
     },
     paper: {
-      marginTop: theme.spacing(8),
+      marginTop: theme.spacing(0),
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -52,7 +53,7 @@ const Loginmain = () => {
 
       {user.name ? (
         <div>
-          <Profile />
+          <Navbar />
         </div>
       ) : (
         <div className="flex-container">

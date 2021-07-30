@@ -21,6 +21,7 @@ import Device from "./Device";
 import EMailAlert from "./EMailAlert";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Horizontalnav from "./components/Horizontalnav";
+import AddNewPet from "./AddNewPet";
 
 const Navbar = () => {
   const useStyles = makeStyles((theme) => ({
@@ -35,6 +36,9 @@ const Navbar = () => {
       height: "100vh",
       margin: "0",
     },
+    Maincontainer:{
+      marginTop:"12px",
+    }
   }));
 
   const classes = useStyles();
@@ -76,6 +80,11 @@ const Navbar = () => {
       name: "EMailAlert",
     },
   ];
+  const addnewpet = {
+    pageLink: "/addNewPet",
+    view: AddNewPet,
+    name: "+Add pet",
+  };
   //const leftNav = pages.slice(0, 4);
   //let rightNav = loggedIn ? pages.slice(5, 6) : pages.slice(4, 5);
   // rightNav.push(pages.slice(6, pages.length)[0]);
@@ -83,14 +92,12 @@ const Navbar = () => {
   return (
     <div>
       <Horizontalnav />
-      <br></br>
-      <br></br>
-      <br></br>
+     
       <Router>
-        <Grid container>
+        <Grid container className = {classes. Maincontainer}>
           <Grid item xs={2} className={classes.GridContainer}>
             <center>
-              <VerticalNav pages={navPages} className={classes.navpages} />
+              <VerticalNav pages={navPages} addnewpet={addnewpet} className={classes.navpages} />
             </center>
           </Grid>
           <Grid item xs={10}>
@@ -102,6 +109,7 @@ const Navbar = () => {
               <Route path="/Timezone" exact component={Timezone} />
               <Route path="/Device" exact component={Device} />
               <Route path="/Profile" exact component={Profile} />
+              <Route path="/addNewPet" exact component={AddNewPet} />
             </Switch>
           </Grid>
         </Grid>

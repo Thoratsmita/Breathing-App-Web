@@ -5,6 +5,7 @@ import Switch from "@material-ui/core/Switch";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import DataService from "./service/Data";
+import Mapx from "./Mapx";
 
 import { makeStyles } from "@material-ui/core/styles";
 const Geofence = () => {
@@ -49,16 +50,21 @@ const Geofence = () => {
     save: {
       width: "179px",
       height: "49px",
-      margin: "3px 15px 11px 118px",
+      margin: "3px 15px 11px 334px",
       padding: "14px 65px 13px 66px",
       borderRadius: "34.5px",
       backgroundColor: "#4de382",
       justifyContent: "right",
       color: "#ffffff",
+      float: "right",
     },
   }));
   const classes = useStyles();
   return (
+    <div>
+    <Mapx/>
+    <div>
+      <h1>Set Geofence</h1>
     <FormGroup row>
       <FormControlLabel
         control={
@@ -90,7 +96,8 @@ const Geofence = () => {
       <Button onClick={onSubmit} variant="contained" className={classes.save}>
         Save
       </Button>
-    </FormGroup>
+    </FormGroup></div>
+ </div>
   );
 };
 export default Geofence;

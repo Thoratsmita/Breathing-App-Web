@@ -27,6 +27,8 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "34.5px",
     backgroundColor: "#4de382",
     justifyContent: "right",
+    float : "right",
+    color: "#ffffff",
   },
 }));
 

@@ -10,6 +10,7 @@ import "./login.css";
 import dog from "./assets/dog.png";
 import { LocalGasStationRounded } from "@material-ui/icons";
 import { Hidden } from "@material-ui/core";
+import Navbar from "./Navbar";
 
 const Home = () => {
   const useStyles = makeStyles((theme) => ({

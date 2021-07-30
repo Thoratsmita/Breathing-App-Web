@@ -37,8 +37,8 @@ const SoundAlarm = () => {
           </Button>
           <br></br>
           <Typography variant="h5" gutterBottom>
-            This option will activate the device light and play a musical tone
-            so you can find your pet
+            This option will activate the <br></br> device light and  play a musical tone
+           <br></br> so you can find your pet
           </Typography>
         </center>
       </div>

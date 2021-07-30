@@ -35,12 +35,19 @@ const Device = () => {
   return (
     <div>
       <center>
-        <Button className={classes.restart}>
+        <div>
+          <br></br>
+          <br></br>
+          <br>
+          
+        </br>
+        <Button className={classes.restart} >
           <b>Restart</b>
         </Button>
         <br></br>
         <br></br>
-        <Button className={classes.turnoff}>Turn off</Button>
+        <Button className={classes.turnoff} >Turn off</Button>
+     </div>
       </center>
     </div>
   );

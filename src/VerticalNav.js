@@ -1,5 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import QrReader from 'react-qr-reader'
+import IconButton from '@material-ui/core/IconButton';
+import PhotoCamera from '@material-ui/icons/PhotoCamera';
+
 import {
   // List,
   // ListItem,
@@ -15,7 +19,12 @@ import SoundAlarm from "./SoundAlarm";
 import Geofence from "./Geofence";
 import Profile from "./Profile";
 
-const VerticalNav = ({ pages }) => {
+
+
+
+
+
+const VerticalNav = ({ pages, addnewpet }) => {
   const useStyles = makeStyles((theme) => ({
     navButton: {
       textTransform: "none",
@@ -24,6 +33,15 @@ const VerticalNav = ({ pages }) => {
       background: "#ffffff",
       padding: "5px",
       margin: "10px",
+    },
+    save: {
+      width: "179px",
+      height: "49px",
+     color :"#fffffff",
+      padding: "14px 65px 13px 66px",
+      borderRadius: "34.5px",
+      backgroundColor: "#4de382",
+      justifyContent: "right",
     },
   }));
 
@@ -35,6 +53,7 @@ const VerticalNav = ({ pages }) => {
 
   return (
     <div>
+      <Grid>
       {pages.map((page, index) => (
         <Grid item className={classes.navpages}>
           <Button
@@ -45,8 +64,17 @@ const VerticalNav = ({ pages }) => {
           >
             {page.name}
           </Button>
+        
         </Grid>
+
       ))}
+      <br></br>
+      <br></br>
+        <Button type="submit " value="Submit" className={classes.save}
+        component={Link} to={addnewpet.pageLink} >
+        <b>{addnewpet.name}</b>
+      </Button> {/* add a onclick*/}
+      </Grid>
     </div>
   );
 };

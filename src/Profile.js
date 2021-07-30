@@ -67,7 +67,7 @@ const Profile = () => {
 
   const useStyles = makeStyles((theme) => ({
     paper: {
-      marginTop: theme.spacing(8),
+      marginTop: theme.spacing(0),
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -92,6 +92,7 @@ const Profile = () => {
       backgroundColor: "#4de382",
       justifyContent: "right",
       color: "#ffffff",
+      float: "right",
     },
   }));
 
@@ -210,6 +211,7 @@ const Profile = () => {
                   className="save"
                   type="submit"
                   className={classes.save}
+                  onClick = {onSubmit}
                 >
                   <b>Save</b>
                 </Button>

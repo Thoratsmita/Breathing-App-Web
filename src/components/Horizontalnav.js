@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
     marginTop: "10px",
     marginLeft: "-20px",
+    marginBottom: '0px',
   },
   title: {
     flexGrow: 1,
@@ -25,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "white",
     padding: "0px",
     height: "60px",
-    margin: "0px",
+    marginLeft: "-15px",
   },
 }));
 
