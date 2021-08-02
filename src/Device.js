@@ -7,8 +7,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
-import DoneOutlineTwoToneIcon from '@material-ui/icons/DoneOutlineTwoTone';
-
+import SuccessImage from './assets/successfulregistration.png'
 
 
 
@@ -41,7 +40,12 @@ const Transition = React.forwardRef(function Transition(props, ref) {
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle id="alert-dialog-slide-title"><DoneOutlineTwoToneIcon/>{" Remote Restarted"}</DialogTitle>
+        <DialogTitle id="alert-dialog-slide-title">
+          <center>
+            <img src={SuccessImage} alt="SuccessImage image not loaded" />
+          </center>
+          {" Remote Restarted"}
+        </DialogTitle>
         
       </Dialog>
       </div>
@@ -133,7 +137,12 @@ function AlertDialogTurnOff() {
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle id="alert-dialog-slide-title"><DoneOutlineTwoToneIcon/>{" Remote Turned Off"}</DialogTitle>
+        <DialogTitle id="alert-dialog-slide-title">
+          <center>
+            <img src={SuccessImage} alt="SuccessImage image not loaded" />
+          </center>
+          {" Remote Turned Off"}
+        </DialogTitle>
         
       </Dialog>
       </div>
