@@ -18,10 +18,10 @@ import VerticalNav from "./VerticalNav";
 import TrackingPeriod from "./TrackingPeriod";
 import Timezone from "./Timezone";
 import Device from "./Device";
-import EMailAlert from "./EMailAlert";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Horizontalnav from "./components/Horizontalnav";
 import AddNewPet from "./AddNewPet";
+import WhereisMyPet from "./WhereisMyPet";
 
 const Navbar = () => {
   const useStyles = makeStyles((theme) => ({
@@ -44,11 +44,15 @@ const Navbar = () => {
   const classes = useStyles();
   const navPages = [
     {
+      pageLink: "/WhereisMyPet",
+      view: WhereisMyPet,
+      name: "Where is my pet?",
+    },
+    {
       pageLink: "/SoundAlarm",
       view: SoundAlarm,
       name: "Sound the Alarm",
     },
-
     {
       pageLink: "/Profile",
       view: Profile,
@@ -73,12 +77,7 @@ const Navbar = () => {
       pageLink: "/Device",
       view: Device,
       name: "Device",
-    },
-    {
-      pageLink: "/EMailAlert",
-      view: EMailAlert,
-      name: "EMailAlert",
-    },
+    }
   ];
   const addnewpet = {
     pageLink: "/addNewPet",
@@ -102,10 +101,10 @@ const Navbar = () => {
           </Grid>
           <Grid item xs={10}>
             <Switch>
+              <Route path="/WhereisMyPet" component={WhereisMyPet} />
               <Route path="/SoundAlarm" exact component={SoundAlarm} />
               <Route path="/TrackingPeriod" exact component={TrackingPeriod} />
               <Route path="/Geofence" exact component={Geofence} />
-              <Route path="/EMailAlert" exact component={EMailAlert} />
               <Route path="/Timezone" exact component={Timezone} />
               <Route path="/Device" exact component={Device} />
               <Route path="/Profile" exact component={Profile} />

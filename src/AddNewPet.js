@@ -55,7 +55,11 @@ const AddNewPet = () => {
     DataService.create("ProfileData", data);
     console.log(`Data sent to server: ${JSON.stringify(data)}`);
     setName("");
-  };
+
+    return(
+      <QRcodeScanner/>
+    )
+    };
 
   const useStyles = makeStyles((theme) => ({
     paper: {
@@ -96,7 +100,10 @@ const AddNewPet = () => {
         <Container component="main" maxWidth="xs">
           <div className={classes.paper}>
             <form className={classes.form} noValidate>
+              <Button>
                 <img src={ScannerImage} alt="Scanner image not loaded" />
+              </Button>
+                
               <br></br>
               <br></br>
               <br></br>

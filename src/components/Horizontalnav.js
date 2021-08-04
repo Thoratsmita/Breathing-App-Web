@@ -8,6 +8,16 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import "./navbar.css";
 import logo from "../assets/logo.png";
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import Sweet from '../assets/Sweet/group-4.png';
+import Ricko from '../assets/Ricko/group-3.png';
+import Bailey from '../assets/Bailey/group-2.png';
+import PersonIcon from '@material-ui/icons/Person';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -28,10 +38,26 @@ const useStyles = makeStyles((theme) => ({
     height: "60px",
     marginLeft: "-15px",
   },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  }
 }));
 
 const Horizontalnav = () => {
   const classes = useStyles();
+
+  const [age, setAge] = React.useState('');
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+
+
+const User = "User";
 
   return (
     <div className={classes.root}>
@@ -46,8 +72,66 @@ const Horizontalnav = () => {
             <img src={logo} className={classes.image} />
           </IconButton>
 
+          <Typography variant="h6" className={classes.title}>
+            
+          </Typography>
+
+      <FormControl variant="outlined" className={classes.formControl}>
+        <InputLabel id="demo-simple-select-outlined-label">My Pet</InputLabel>
+        <Select
+          labelId="demo-simple-select-outlined-label"
+          id="demo-simple-select-outlined"
+          value={age}
+          onChange={handleChange}
+          label="Age"
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value={10}>
+            <div className="container">
+              <div className="image">
+                <img src={Bailey} alt="X"/>
+              </div>
+              <div className="text">
+                Bailey (Golden Retriever)
+              </div>
+            </div>
+          </MenuItem>
+          <MenuItem value={20}>
+            <div className="container">
+              <div className="image">
+               <img src={Ricko} alt="X"/>  
+              </div>
+              <div className="text">
+                Ricko (American Bobtail)
+              </div>
+            </div>
+          </MenuItem>
+          <MenuItem value={30}>
+          <div className="container">
+              <div className="image">
+              <img src={Sweet} alt="X"/> 
+              </div>
+              <div className="text">
+              Sweet (German Shepherd)
+              </div>
+            </div>
+          </MenuItem>
+        </Select>
+      </FormControl>
+
           <Button color="inherit">
-            <b>Welcome</b>
+            <b>
+            <div className="container">
+              <div className="image">
+              <PersonIcon/>
+              </div>
+              <div className="text">
+              Welcome 
+              </div>
+            </div>
+            </b>
           </Button>
         </Toolbar>
       </AppBar>
