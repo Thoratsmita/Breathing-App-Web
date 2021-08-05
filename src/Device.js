@@ -17,6 +17,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
  function AlertDialogRestart() {
   const [open, setOpen] = React.useState(false);
+  const[showRemoteRestart, setShowRemoteRestart] = React.useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -26,17 +27,26 @@ const Transition = React.forwardRef(function Transition(props, ref) {
     setOpen(false);
   };
 
-  /*const RemoteRestart =() => {
+  const handleshowRemoteRestart = () =>{
+    setShowRemoteRestart(true);
+  }
+
+  const handlecloseRemoteRestart = () =>{
+    setShowRemoteRestart(false);
+  }
+
+  const RemoteRestart =() => {
     return (
       <div>
-      <Button className={classes.restart} onClick={handleClickOpen} variant="outlined">
+      <Button className={classes.restart} onClick={handleClickOpen,handleshowRemoteRestart} variant="outlined">
           Yes
       </Button>
+      {showRemoteRestart ? 
       <Dialog
         open={open}
         TransitionComponent={Transition}
         keepMounted
-        onClose={handleClose}
+        onClose={handleClose,handlecloseRemoteRestart}
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
       >
@@ -47,10 +57,10 @@ const Transition = React.forwardRef(function Transition(props, ref) {
           {" Remote Restarted"}
         </DialogTitle>
         
-      </Dialog>
+      </Dialog> : null}
       </div>
     );
-  }*/
+  }
 
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -100,9 +110,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
         <DialogTitle id="alert-dialog-slide-title">{"Would you like to remotely restart your device ?"}</DialogTitle>
         
         <DialogActions>
-          <Button className={classes.restart} onClick={handleClickOpen} >
-            Yes
-          </Button>
+          <RemoteRestart/>
           <Button onClick={handleClose} color="primary" className={classes.turnoff}>
             Cancel
           </Button>
@@ -114,6 +122,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 function AlertDialogTurnOff() {
   const [open, setOpen] = React.useState(false);
+  const[showRemoteTurnOff, setShowRemoteTurnOff] = React.useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -123,17 +132,26 @@ function AlertDialogTurnOff() {
     setOpen(false);
   };
 
+ const handleshowRemoteTurnOff = () =>{
+    setShowRemoteTurnOff(true);
+  }
+
+  const handlecloseRemoteTurnOff = () =>{
+    setShowRemoteTurnOff(false);
+  }
+
   const RemoteTurnOff =() => {
     return (
       <div>
-      <Button className={classes.restart} onClick={handleClickOpen} variant="outlined">
+      <Button className={classes.restart} onClick={handleClickOpen,handleshowRemoteTurnOff} variant="outlined">
             Yes
         </Button>
+      {showRemoteTurnOff ? 
       <Dialog
         open={open}
         TransitionComponent={Transition}
         keepMounted
-        onClose={handleClose}
+        onClose={handleClose,handlecloseRemoteTurnOff}
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
       >
@@ -144,7 +162,7 @@ function AlertDialogTurnOff() {
           {" Remote Turned Off"}
         </DialogTitle>
         
-      </Dialog>
+      </Dialog> : null }
       </div>
     );
   }
