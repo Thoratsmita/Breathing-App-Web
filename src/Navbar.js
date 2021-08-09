@@ -16,7 +16,6 @@ import Geofence from "./Geofence";
 import Profile from "./Profile";
 import VerticalNav from "./VerticalNav";
 import TrackingPeriod from "./TrackingPeriod";
-import Timezone from "./Timezone";
 import Device from "./Device";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Horizontalnav from "./components/Horizontalnav";
@@ -63,11 +62,7 @@ const Navbar = () => {
       view: Geofence,
       name: "Set Geofence",
     },
-    {
-      pageLink: "/Timezone",
-      view: Timezone,
-      name: "Set Timezone",
-    },
+    
     {
       pageLink: "/TrackingPeriod",
       view: TrackingPeriod,
@@ -105,7 +100,6 @@ const Navbar = () => {
               <Route path="/SoundAlarm" exact component={SoundAlarm} />
               <Route path="/TrackingPeriod" exact component={TrackingPeriod} />
               <Route path="/Geofence" exact component={Geofence} />
-              <Route path="/Timezone" exact component={Timezone} />
               <Route path="/Device" exact component={Device} />
               <Route path="/Profile" exact component={Profile} />
               <Route path="/addNewPet" exact component={AddNewPet} />

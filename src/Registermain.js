@@ -18,8 +18,6 @@ const Registermain = () => {
 
   return (
     <div>
-      {console.log(user)}
-      {console.log(user.name)}
       {user.name ? (
         <div>
           <Registerx />

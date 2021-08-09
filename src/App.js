@@ -9,6 +9,7 @@ import SoundAlarm from "./SoundAlarm";
 import Geofence from "./Geofence";
 import Navbar from "./Navbar";
 import Mapx from "./Mapx";
+import PrivateRoute from "./PrivateRoutes";
 // import DataService from "./services/Data";
 
 const App = () => {

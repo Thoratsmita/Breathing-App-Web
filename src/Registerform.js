@@ -16,12 +16,13 @@ import logo from "./assets/logo.png";
 import { Link as LinkRouter } from "react-router-dom";
 import "./login.css";
 import DataService from "./service/Data";
+import { signup } from "./coreAPIcalls/userAPIcalls";
 
 const Registerform = () => {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setpassword] = useState();
-  const [confirmpassword, setconfirmpassword] = useState();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setpassword] = useState("");
+  const [username, setUserName] = useState("");
 
   const ChangeName = (event) => {
     setName({ name: event.target.value });
@@ -32,20 +33,28 @@ const Registerform = () => {
   const ChangePassword = (event) => {
     setpassword({ password: event.target.value });
   };
-  const ChangeConfirmPassword = (event) => {
-    setconfirmpassword({ confirmpassword: event.target.value });
+  const ChangeUserName = (event) => {
+    setUserName({ username: event.target.value });
   };
+
   const onSubmit = (event) => {
     event.preventDefault();
     const data = {
       name,
       email,
       password,
-      confirmpassword,
+      username,
     };
-    console.log(data);
-    DataService.create("usersData", data);
-    console.log(`Data sent to server: ${JSON.stringify(data)}`);
+    signup(data)
+    .then(res => {
+      setName("");
+      setEmail("");
+      setpassword("");
+      setUserName("");
+      console.log(`Data sent to server: ${JSON.stringify(res)}`);
+      }
+    )
+    .catch(err => {console.log(err)});
   };
 
   const useStyles = makeStyles((theme) => ({
@@ -107,6 +116,19 @@ const Registerform = () => {
             <br></br>
             <br></br>
             <br></br>
+            <TextField
+              required
+              fullWidth
+              id="standard-basic"
+              label="Username"
+              name="Username"
+              className="Username"
+              autoFocus
+              onChange={ChangeUserName}
+            />
+            <br></br>
+            <br></br>
+            <br></br>
 
             <TextField
               required
@@ -130,20 +152,6 @@ const Registerform = () => {
               type="password"
               className="Username"
               onChange={ChangePassword}
-            />
-            <br></br>
-            <br></br>
-            <br></br>
-            <TextField
-              required
-              fullWidth
-              id="standard-basic"
-              name="Confirmpassword"
-              label="ConfirmPassword"
-              type="password"
-              className="Username"
-              onChange={ChangeConfirmPassword}
-              value={confirmpassword}
             />
             <br></br>
             <br></br>

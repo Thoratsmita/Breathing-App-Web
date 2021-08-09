@@ -1,5 +1,8 @@
 import React, { Component, useState } from 'react'
 import GoogleMapReact from 'google-map-react';
+import {HologramLocationAPI, trialAPI} from './coreAPIcalls/hologramAPIcalls';
+
+
 
 const AnyReactComponent = ({ text }) => (
     <div style={{
@@ -20,8 +23,8 @@ const AnyReactComponent = ({ text }) => (
 class WhereisMyPet extends Component {
     static defaultProps = {
       center: {
-        lat: 59.95,
-        lng: 30.33
+        lat: 30.45,
+        lng: 80.43
       },
       zoom: 11
     };
@@ -36,9 +39,9 @@ class WhereisMyPet extends Component {
             defaultZoom={this.props.zoom}
           >
             <AnyReactComponent
-              lat={59.955413}
-              lng={30.337844}
-              text="My Marker"
+              lat= {30.453425}
+              lng={80.433225}
+              text={trialAPI}
             />
           </GoogleMapReact>
         </div>

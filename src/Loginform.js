@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -15,13 +16,32 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 
 import "./login.css";
+import { signin , isAuthenticated} from "./coreAPIcalls/userAPIcalls";
+import PrivateRoute from "./PrivateRoutes";
 
 const Loginform = ({ Login, error }) => {
-  const [details, setDetails] = useState({ name: "", password: "" });
+  const [details, setDetails] = useState({ email: "", password: "" });
+
   const submitHandler = (e) => {
     e.preventDefault();
-    Login(details);
+    signin(details)
+    .then(res => {
+      setDetails({
+        email:"",
+        password:""
+      });
+      console.log("User signed in successfully");
+      console.log(res);
+    })
+    .catch(err => {console.log(err)});
   };
+
+  const performRedirect = () => {
+    if (isAuthenticated()) {
+      return <Redirect to="/Navbar" />;
+    }
+  };
+
   const useStyles = makeStyles((theme) => ({
     paper: {
       marginTop: theme.spacing(8),
@@ -73,12 +93,12 @@ const Loginform = ({ Login, error }) => {
               required
               fullWidth
               id="standard-basic"
-              label="Username"
-              name="name"
+              label="Email"
+              name="Email"
               className="Username"
               autoFocus
-              onChange={(e) => setDetails({ ...details, name: e.target.value })}
-              value={details.name}
+              onChange={(e) => setDetails({ ...details, email: e.target.value })}
+              value={details.email}
             />
             <br></br>
             <br></br>
@@ -109,13 +129,18 @@ const Loginform = ({ Login, error }) => {
                 value="Submit"
                 type="submit"
                 value="Submit"
+                onClick={submitHandler}
               >
-                SignIn
+                <Link component={LinkRouter} to="/Navbar">
+                  SignIn
+                </Link>
+              
               </Button>
               <Button variant="outlined" className={classes.signup}>
                 <Link component={LinkRouter} to="/">
                   SignUp
                 </Link>
+                
               </Button>
               <br></br>
 
