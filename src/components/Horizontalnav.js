@@ -17,6 +17,9 @@ import Sweet from '../assets/Sweet/group-4.png';
 import Ricko from '../assets/Ricko/group-3.png';
 import Bailey from '../assets/Bailey/group-2.png';
 import PersonIcon from '@material-ui/icons/Person';
+import { Link as LinkRouter } from "react-router-dom";
+import Link from "@material-ui/core/Link";
+import { signout } from "../coreAPIcalls/userAPIcalls";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,6 +59,17 @@ const Horizontalnav = () => {
     setAge(event.target.value);
   };
 
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    console.log(`Horizontalnav token ${localStorage.getItem("jwt")}`);
+    signout()
+    .then(res => {     
+      console.log(res);
+      }
+    )
+    .catch(err => {console.log(err)});
+  };
 
 const User = "User";
 
@@ -131,6 +145,13 @@ const User = "User";
               Welcome 
               </div>
             </div>
+            </b>
+          </Button>
+          <Button color="inherit">
+            <b>
+            <Link component={LinkRouter} to="/Login" onClick={onSubmit}>
+                  Sign out
+            </Link>
             </b>
           </Button>
         </Toolbar>

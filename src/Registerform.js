@@ -39,18 +39,16 @@ const Registerform = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    const data = {
-      name,
+    console.log(`Data : ${email}`);
+    signup({name,
       email,
       password,
-      username,
-    };
-    signup(data)
-    .then(res => {
-      setName("");
-      setEmail("");
-      setpassword("");
-      setUserName("");
+      username})
+    .then(res => {     
+      setName(...name,"");
+      setEmail(...email,"");
+      setpassword(...password,"");
+      setUserName(...username,"");
       console.log(`Data sent to server: ${JSON.stringify(res)}`);
       }
     )

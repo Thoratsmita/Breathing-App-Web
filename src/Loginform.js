@@ -16,22 +16,31 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 
 import "./login.css";
-import { signin , isAuthenticated} from "./coreAPIcalls/userAPIcalls";
+import { signin , isAuthenticated, authenticate} from "./coreAPIcalls/userAPIcalls";
 import PrivateRoute from "./PrivateRoutes";
+import Horizontalnav from "./components/Horizontalnav";
 
 const Loginform = ({ Login, error }) => {
   const [details, setDetails] = useState({ email: "", password: "" });
+  const { email, password } = details;
 
   const submitHandler = (e) => {
     e.preventDefault();
     signin(details)
     .then(res => {
       setDetails({
+        ...details,
         email:"",
         password:""
-      });
+      },
+      authenticate(res, () => { 
+        setDetails({
+          ...details 
+        });
+      }));
       console.log("User signed in successfully");
       console.log(res);
+      /*<Horizontalnav username = {res.body.name}/>*/
     })
     .catch(err => {console.log(err)});
   };

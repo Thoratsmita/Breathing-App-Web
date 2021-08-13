@@ -6,7 +6,7 @@ import DataService from "./service/Data";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import ScannerImage from "./assets/bitmap@2x.png";
+import ScannerImage from "./assets/bitmap@2x.png"; 
 
 
 class QRcodeScanner extends Component {
@@ -43,6 +43,7 @@ class QRcodeScanner extends Component {
 const AddNewPet = () => {
 
   const [name, setName] = useState([]);
+  const [showQR, setshowQR] = useState(false);
 
   const ChangeName = (event) => {
     setName({ name: event.target.value });
@@ -55,11 +56,11 @@ const AddNewPet = () => {
     DataService.create("ProfileData", data);
     console.log(`Data sent to server: ${JSON.stringify(data)}`);
     setName("");
-
-    return(
-      <QRcodeScanner/>
-    )
     };
+
+  const onQRScanner = () => {
+    showQR ? setshowQR(false) : setshowQR(true);
+  }
 
   const useStyles = makeStyles((theme) => ({
     paper: {
@@ -100,7 +101,7 @@ const AddNewPet = () => {
         <Container component="main" maxWidth="xs">
           <div className={classes.paper}>
             <form className={classes.form} noValidate>
-              <Button>
+              <Button onClick={onQRScanner}>
                 <img src={ScannerImage} alt="Scanner image not loaded" />
               </Button>
                 
@@ -136,6 +137,7 @@ const AddNewPet = () => {
                
               </form>
           </div>
+          {showQR ? <QRcodeScanner/> : null}
         </Container>
       </center>
     </div>

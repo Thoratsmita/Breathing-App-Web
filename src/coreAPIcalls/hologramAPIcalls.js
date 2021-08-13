@@ -1,10 +1,12 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
+import WhereisMyPet from "../WhereisMyPet";
 
 
-export function HologramLocationAPI() {
-  const [items, setItems] = useState([]);
+export const HologramLocationAPI = () => {
+
+  console.log(`HologramLocationAPI block entered`);
   
-      return fetch(`https://dashboard.hologram.io/api/1/devices/locations`, {
+    return fetch(`https://dashboard.hologram.io/api/1/devices/locations`, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -17,8 +19,7 @@ export function HologramLocationAPI() {
     .then(res => res.json())
     .then(
       (res) => {
-        setItems(res.data);
-        console.log(res.data);
+        console.log(`HologramLocationAPI response is ${res}`);
       })
     .catch(err => console.log(err));
   }

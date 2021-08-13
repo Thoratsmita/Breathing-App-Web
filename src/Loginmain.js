@@ -30,7 +30,6 @@ const Loginmain = () => {
 
   const classes = useStyles();
   const Login = (details) => {
-    console.log(details);
     if (
       details.name == AdminUser.name &&
       details.password == AdminUser.password
